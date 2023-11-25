@@ -87,10 +87,7 @@ impl<T: StringStrategy> SymSpell<T> {
         let file = File::open(corpus).expect("file not found");
         let sr = BufReader::new(file);
 
-        for (i, line) in sr.lines().enumerate() {
-            if i % 50_000 == 0 {
-                eprintln!("progress: {}", i);
-            }
+        for line in sr.lines() {
             let line_str = line.unwrap();
             self.load_dictionary_line(&line_str, term_index, count_index, separator);
         }
@@ -145,10 +142,7 @@ impl<T: StringStrategy> SymSpell<T> {
         }
         let file = File::open(corpus).expect("file not found");
         let sr = BufReader::new(file);
-        for (i, line) in sr.lines().enumerate() {
-            if i % 50_000 == 0 {
-                eprintln!("progress: {}", i);
-            }
+        for line in sr.lines() {
             let line_str = line.unwrap();
             self.load_bigram_dictionary_line(&line_str, term_index, count_index, separator);
         }
