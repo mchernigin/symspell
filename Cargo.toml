@@ -1,15 +1,14 @@
 [package]
 name = "symspell"
 version = "0.4.3"
+edition = "2021"
 license = "MIT"
 authors = ["Rene Klacan <rene.klacan@gmail.com>"]
 keywords = ["spellcheck"]
 description = "Spelling correction & Fuzzy search"
 homepage = "https://github.com/reneklacan/symspell"
 repository = "https://github.com/reneklacan/symspell"
-exclude = [
-    "data/*",
-]
+exclude = ["data/*"]
 
 [lib]
 crate-type = ["cdylib", "rlib"]
@@ -25,7 +24,7 @@ unidecode = "^0.3"
 [target.wasm32-unknown-unknown.dependencies]
 serde = "^1.0.59"
 serde_derive = "^1.0.59"
-wasm-bindgen = { version = "^0.2", features = ["serde-serialize"]}
+wasm-bindgen = { version = "^0.2", features = ["serde-serialize"] }
 
 [target.wasm32-unknown-unknown.dev-dependencies]
 wasm-bindgen-test = "^0.3"
